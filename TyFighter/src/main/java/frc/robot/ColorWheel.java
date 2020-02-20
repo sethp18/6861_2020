@@ -17,28 +17,24 @@ public class ColorWheel {
     
     
 public void colorWheelSpin() {
-      if(m_driverController2.getAButtonPressed() & m_colorWheel.getSelectedSensorPosition()<10) //Auto mode
+      if(m_driverController2.getXButtonPressed() & m_colorWheel.getSelectedSensorPosition()<10) //Auto mode
       {
         m_colorWheel.set(.8);
       }
-
       if(m_colorWheel.getSelectedSensorPosition()>=3400) //3400 is an approximation for number of counts for 3.5 turns 
       {
         m_colorWheel.set(0);
         m_colorWheel.setSelectedSensorPosition(0);
       }
-
-      if(m_driverController2.getBButtonPressed()) //Manual mode
+      if(m_driverController2.getYButtonPressed()) //Manual mode
       {
         m_colorWheel.set(0.3);
       }
-
-      if(m_driverController2.getBButtonReleased())
+      if(m_driverController2.getYButtonReleased())
       {
         m_colorWheel.set(0.0);
       }
-      
-      
-      }
+            
+    }
 
 }

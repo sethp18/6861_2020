@@ -28,6 +28,7 @@ public class Robot extends TimedRobot {
   private static ColorWheel colorWheel;
   private static Climber climber;
   private static PID pid;
+  private static SkyWalker skywalker;
 
   /**
    * This function is run when the robot is first started up and should be
@@ -44,9 +45,8 @@ public class Robot extends TimedRobot {
     colorWheel = new ColorWheel();
     climber = new Climber();
     pid = new PID();
+    skywalker = new SkyWalker();
 
-    climber.climerInit();
-    pid.pidControl();
     //ingester.ingesterInit();
   }
 
@@ -98,7 +98,8 @@ public class Robot extends TimedRobot {
 
   @Override
   public void teleopInit() {
-
+    climber.climberInit();
+    pid.pidControl();
   }
 
   /**
@@ -108,15 +109,11 @@ public class Robot extends TimedRobot {
   public void teleopPeriodic() {
       driveTrain.driveTank();
       colorWheel.colorWheelSpin();
-      climber.climer();
+      climber.climber();
       ingester.ingesterSweep();
-      //ingester.ingesterLift();
       pid.commonLoop();
+      skywalker.SkyWalk();
 
   }
-
-  /**
-   * This function is called periodically during test mode.
-   */
 
 }

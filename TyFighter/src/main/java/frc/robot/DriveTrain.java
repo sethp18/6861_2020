@@ -8,6 +8,7 @@
 package frc.robot;
 
 import edu.wpi.first.wpilibj.GenericHID.Hand;
+import com.ctre.phoenix.motorcontrol.NeutralMode;
 import com.ctre.phoenix.motorcontrol.can.WPI_TalonSRX;
 import edu.wpi.first.wpilibj.SpeedControllerGroup;
 import edu.wpi.first.wpilibj.XboxController;
@@ -28,10 +29,15 @@ public class DriveTrain {
 
   private DifferentialDrive m_robotDrive = new DifferentialDrive(leftMtrGroup, rightMtrGroup);
   
-  private double mtrSpeed = -0.9;
+  private double mtrSpeed = -0.7;
 
   public void driveTank() {
-      m_robotDrive.tankDrive(m_driverController1.getY(Hand.kLeft)*mtrSpeed,
-      m_driverController1.getY(Hand.kRight)*mtrSpeed);
+      m_leftFtrMotor.setNeutralMode(NeutralMode.Brake);
+      m_rightFrtMotor.setNeutralMode(NeutralMode.Brake);
+      m_leftRrMotor.setNeutralMode(NeutralMode.Brake);
+      m_rightRrMotor.setNeutralMode(NeutralMode.Brake);
+
+      m_robotDrive.tankDrive(Math.pow(m_driverController1.getY(Hand.kLeft),3)*mtrSpeed,
+      Math.pow(m_driverController1.getY(Hand.kRight),3)*mtrSpeed);
   }
 }
