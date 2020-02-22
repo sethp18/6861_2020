@@ -40,4 +40,40 @@ public class DriveTrain {
       m_robotDrive.tankDrive(Math.pow(m_driverController1.getY(Hand.kLeft),3)*mtrSpeed,
       Math.pow(m_driverController1.getY(Hand.kRight),3)*mtrSpeed);
   }
+  public void driveAuton(final double speed, int i) {
+    for(i = 0; i <= 10000; i++)
+    {
+        m_robotDrive.tankDrive(speed, speed);
+        System.out.println(i);
+    }
+    //m_leftFtrMotor.setNeutralMode(NeutralMode.Brake);
+    //m_rightFrtMotor.setNeutralMode(NeutralMode.Brake);
+    //m_leftRrMotor.setNeutralMode(NeutralMode.Brake);
+    //m_rightRrMotor.setNeutralMode(NeutralMode.Brake);
+
+  //  m_robotDrive.tankDrive(speed, speed);
+    //setTimeout(timeout);
+  }
+  public void turnAuton(final double speed, int i){
+    //setTimeout(timeout);
+    for(i = 0; i <= 10000; i++)
+    {
+        m_robotDrive.tankDrive(-speed, speed);
+        System.out.println(i);
+    }
+    //m_leftFtrMotor.setNeutralMode(NeutralMode.Brake);
+    //m_rightFrtMotor.setNeutralMode(NeutralMode.Brake);
+    //m_leftRrMotor.setNeutralMode(NeutralMode.Brake);
+    //m_rightRrMotor.setNeutralMode(NeutralMode.Brake);
+   
+    //m_robotDrive.tankDrive(-speed, speed);//set negitive to turn left
+  }
+  public void StopAuton(int i){
+    //setTimeout(timeout);
+    for(i = 0; i <= 10000; i++)
+    {
+        m_robotDrive.tankDrive(0, 0);
+        System.out.println(i);
+    }
+  }
 }

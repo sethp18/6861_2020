@@ -75,9 +75,15 @@ public class Robot extends TimedRobot {
    */
   @Override
   public void autonomousInit() {
-    m_autoSelected = m_chooser.getSelected();
+   // m_autoSelected = m_chooser.getSelected();
     // m_autoSelected = SmartDashboard.getString("Auto Selector", kDefaultAuto);
-    System.out.println("Auto selected: " + m_autoSelected);
+    //System.out.println("Auto selected: " + m_autoSelected);
+    driveTrain.driveAuton(.5, 10000);
+    ingester.ingestorAuton(1, 10000);
+    driveTrain.driveAuton(-0.5, 2500);
+    driveTrain.turnAuton(.5, 10000);
+    driveTrain.driveAuton(.5, 10000);
+    //can add driveTrain.StopAuton(int i); if needed
   }
 
   /**

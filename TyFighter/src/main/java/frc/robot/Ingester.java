@@ -34,5 +34,11 @@ public class Ingester {
         SmartDashboard.putNumber("Left Trigger Value: ", m_driverController1.getTriggerAxis(Hand.kLeft));
         SmartDashboard.putNumber("Right Trigger Value: ", m_driverController1.getTriggerAxis(Hand.kRight));
     }
-
+    public void ingestorAuton(double speed, int i){
+        for(i = 0; i <= 10000; i++)
+        {
+            m_sweep.set(speed);
+            System.out.println(i);
+        }
+}
 }
